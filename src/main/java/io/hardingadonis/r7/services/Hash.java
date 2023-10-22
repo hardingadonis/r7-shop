@@ -1,4 +1,4 @@
-package io.hardingadonis.r7.service;
+package io.hardingadonis.r7.services;
 
 import java.security.*;
 
