@@ -2,7 +2,7 @@ CREATE TABLE `user` (
   `id` int UNIQUE PRIMARY KEY AUTO_INCREMENT COMMENT 'ID dùng để quản lý, tự động tăng',
   `full_name` varchar(255) NOT NULL COMMENT 'Họ tên người dùng',
   `birth_year` int NOT NULL COMMENT 'Năm sinh',
-  `gender` int NOT NULL COMMENT 'Giới tính. 0 là nam, 1 là nữ',
+  `gender` ENUM ('male', 'female') NOT NULL COMMENT 'Giới tính',
   `email` varchar(255) UNIQUE NOT NULL COMMENT 'Địa chỉ email',
   `hashed_password` varchar(64) NOT NULL COMMENT 'Mật khẩu sau khi hash bằng SHA256',
   `avatar_path` varchar(255) COMMENT 'Đường dẫn lưu ảnh đại diện',
