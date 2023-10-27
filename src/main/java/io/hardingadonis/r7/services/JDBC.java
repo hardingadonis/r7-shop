@@ -40,7 +40,7 @@ public class JDBC {
 
             System.out.println("Connect MySQL successfully!");
         } catch (SQLException ex) {
-            System.err.println("Connect MySQL failure!");
+            System.err.println(ex.getMessage());
         }
 
         return connection;
@@ -54,7 +54,7 @@ public class JDBC {
                 System.out.println("Close MySQL successfully!");
             }
         } catch (SQLException ex) {
-            System.err.println("Close MySQL failure!");
+            System.err.println(ex.getMessage());
         }
     }
 }
