@@ -120,7 +120,7 @@ public class AdminDAO implements DAO<Admin> {
         try {
             Connection conn = JDBC.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("DELETE from admin WHERE id = ?");
+            PreparedStatement smt = conn.prepareStatement("DELETE FROM admin WHERE id = ?");
             smt.setInt(1, ID);
 
             smt.executeUpdate();
