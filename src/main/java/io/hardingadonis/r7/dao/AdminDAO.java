@@ -101,13 +101,12 @@ public class AdminDAO implements DAO<Admin> {
         try {
             Connection conn = JDBC.getConnection();
             
-            PreparedStatement smt = conn.prepareStatement("UPDATE admin SET username = ?, hashed_password = ?, role = ?, create_at = ?, update_at = ? WHERE id = ? AND delete_at IS NULL");
+            PreparedStatement smt = conn.prepareStatement("UPDATE admin SET username = ?, hashed_password = ?, role = ?, update_at = ? WHERE id = ? AND delete_at IS NULL");
             smt.setString(1, obj.getUsername());
             smt.setString(2, obj.getHashedPassword());
             smt.setString(3, obj.getRole().toString());
-            smt.setString(4, Converter.convert(obj.getCreateAt()));
-            smt.setString(5, Converter.convert(LocalDateTime.now()));
-            smt.setInt(6, obj.getID());
+            smt.setString(4, Converter.convert(LocalDateTime.now()));
+            smt.setInt(5, obj.getID());
             
             smt.executeUpdate();
             
