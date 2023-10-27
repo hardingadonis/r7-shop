@@ -11,6 +11,7 @@ public class Admin {
     private AdminRole role;
     private LocalDateTime createAt;
     private LocalDateTime updateAt;
+    private LocalDateTime deleteAt;
 
     public Admin() {
     }
@@ -21,21 +22,23 @@ public class Admin {
         this.role = role;
     }
 
-    public Admin(String username, String hashedPassword, AdminRole role, LocalDateTime createAt, LocalDateTime updateAt) {
+    public Admin(String username, String hashedPassword, AdminRole role, LocalDateTime createAt, LocalDateTime updateAt, LocalDateTime deleteAt) {
         this.username = username;
         this.hashedPassword = hashedPassword;
         this.role = role;
         this.createAt = createAt;
         this.updateAt = updateAt;
+        this.deleteAt = deleteAt;
     }
 
-    public Admin(int ID, String username, String hashedPassword, AdminRole role, LocalDateTime createAt, LocalDateTime updateAt) {
+    public Admin(int ID, String username, String hashedPassword, AdminRole role, LocalDateTime createAt, LocalDateTime updateAt, LocalDateTime deleteAt) {
         this.ID = ID;
         this.username = username;
         this.hashedPassword = hashedPassword;
         this.role = role;
         this.createAt = createAt;
         this.updateAt = updateAt;
+        this.deleteAt = deleteAt;
     }
 
     public int getID() {
@@ -86,8 +89,16 @@ public class Admin {
         this.updateAt = updateAt;
     }
 
+    public LocalDateTime getDeleteAt() {
+        return deleteAt;
+    }
+
+    public void setDeleteAt(LocalDateTime deleteAt) {
+        this.deleteAt = deleteAt;
+    }
+
     @Override
     public String toString() {
-        return "Admin{" + "ID=" + ID + ", username=" + username + ", hashedPassword=" + hashedPassword + ", role=" + role + ", createAt=" + createAt + ", updateAt=" + updateAt + '}';
+        return "Admin{" + "ID=" + ID + ", username=" + username + ", hashedPassword=" + hashedPassword + ", role=" + role + ", createAt=" + createAt + ", updateAt=" + updateAt + ", deleteAt=" + deleteAt + '}';
     }
 }
