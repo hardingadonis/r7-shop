@@ -121,7 +121,7 @@ public class AdminDAO implements DAO<Admin> {
         try {
             Connection conn = JDBC.getConnection();
             
-            PreparedStatement smt = conn.prepareStatement("UPDATE admin SET delete_at = ? WHERE id = ?");
+            PreparedStatement smt = conn.prepareStatement("UPDATE admin SET delete_at = ? WHERE id = ? AND delete_at IS NULL");
             smt.setString(1, Converter.convert(LocalDateTime.now()));
             smt.setInt(2, ID);
             

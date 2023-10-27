@@ -97,7 +97,7 @@ public class CategoryDAO implements DAO<Category> {
         try {
             Connection conn = JDBC.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("UPDATE category SET name = ?, slug = ?, update_at = ? WHERE id = ?");
+            PreparedStatement smt = conn.prepareStatement("UPDATE category SET name = ?, slug = ?, update_at = ? WHERE id = ? AND delete_at IS NULL");
             smt.setString(1, obj.getName());
             smt.setString(2, obj.getSlug());
             smt.setString(3, Converter.convert(LocalDateTime.now()));
@@ -116,7 +116,7 @@ public class CategoryDAO implements DAO<Category> {
         try {
             Connection conn = JDBC.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("UPDATE category SET delete_at = ? WHERE id = ?");
+            PreparedStatement smt = conn.prepareStatement("UPDATE category SET delete_at = ? WHERE id = ? AND delete_at IS NULL");
             smt.setString(1, Converter.convert(LocalDateTime.now()));
             smt.setInt(2, ID);
 
