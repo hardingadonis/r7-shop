@@ -10,6 +10,16 @@ public enum UserStatus {
         this.label = label;
     }
 
+    public static UserStatus create(String status) {
+        switch (status) {
+            case "activate":
+                return ACTIVATE;
+            case "deactivate":
+            default:
+                return DEACTIVATE;
+        }
+    }
+
     @Override
     public String toString() {
         return label;

@@ -10,6 +10,16 @@ public enum AdminRole {
         this.label = label;
     }
 
+    public static AdminRole create(String role) {
+        switch (role) {
+            case "super_admin":
+                return SUPER_ADMIN;
+            case "admin":
+            default:
+                return ADMIN;
+        }
+    }
+
     @Override
     public String toString() {
         return label;
