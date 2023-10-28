@@ -2,7 +2,7 @@ name: 'Publish R7 Shop Images'
 
 on:
   release:
-    types: released
+    types: published
 
 jobs:
   publish:
