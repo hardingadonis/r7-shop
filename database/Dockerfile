@@ -1,5 +1,11 @@
 FROM mysql:8.1.0
 
+LABEL org.opencontainers.image.source=https://github.com/hardingadonis/r7-shop
+LABEL org.opencontainers.image.description="Container that runs MySQL for R7 Shop"
+LABEL org.opencontainers.image.licenses=Apache-2.0
+
+LABEL maintainer=hardingadonis@gmail.com
+
 # Copy the database schema to the container
 COPY ./setup.sql /docker-entrypoint-initdb.d/setup.sql
 

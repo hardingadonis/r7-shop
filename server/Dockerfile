@@ -1,5 +1,11 @@
 FROM tomcat:8.5-jre8
 
+LABEL org.opencontainers.image.source=https://github.com/hardingadonis/r7-shop
+LABEL org.opencontainers.image.description="Container that runs Tomcat for R7 Shop"
+LABEL org.opencontainers.image.licenses=Apache-2.0
+
+LABEL maintainer=hardingadonis@gmail.com
+
 # Copy the war file to the container
 COPY ./*.war /usr/local/tomcat/webapps/r7.war
 

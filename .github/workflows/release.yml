@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   release:
     name: 'Release R7 Shop'
@@ -23,6 +26,6 @@ jobs:
       - name: 'Release R7 Shop'
         uses: softprops/action-gh-release@v0.1.15
         with:
-          name: 'R7 Shop ${{ steps.get_version.outputs.version }}'
-          tag_name: ${{ steps.get_version.outputs.version }}
+          name: 'R7 Shop v${{ steps.get_version.outputs.version }}'
+          tag_name: v${{ steps.get_version.outputs.version }}
           generate_release_notes: true
