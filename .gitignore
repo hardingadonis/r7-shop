@@ -29,3 +29,4 @@ target/
 # NetBeans
 nbproject/
 nb-configuration.xml
+server/*.war

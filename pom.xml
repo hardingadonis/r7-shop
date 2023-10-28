@@ -4,7 +4,7 @@
 
     <groupId>io.hardingadonis</groupId>
     <artifactId>r7</artifactId>
-    <version>0.1.0</version>
+    <version>1.0.0</version>
     <packaging>war</packaging>
 
     <name>R7 Shop</name>
@@ -53,6 +53,7 @@
                 <version>3.4.0</version>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <outputDirectory>${project.basedir}/server/</outputDirectory>
                 </configuration>
             </plugin>
             <plugin>
@@ -79,6 +80,12 @@
                                     <groupId>com.mysql</groupId>
                                     <artifactId>mysql-connector-j</artifactId>
                                     <version>8.1.0</version>
+                                    <type>jar</type>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>com.googlecode.json-simple</groupId>
+                                    <artifactId>json-simple</artifactId>
+                                    <version>1.1.1</version>
                                     <type>jar</type>
                                 </artifactItem>
                             </artifactItems>

@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  database:
+    image: ghcr.io/hardingadonis/r7-shop-database:latest
+  
+  server:
+    image: ghcr.io/hardingadonis/r7-shop-server:latest
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
