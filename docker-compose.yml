@@ -2,10 +2,10 @@ version: '3'
 
 services:
   database:
-    image: ghcr.io/hardingadonis/r7-shop-database:latest
+    image: ghcr.io/hardingadonis/r7-shop-database:1.0.0
   
   server:
-    image: ghcr.io/hardingadonis/r7-shop-server:latest
+    image: ghcr.io/hardingadonis/r7-shop-server:1.0.0
     ports:
       - "8080:8080"
     depends_on:
