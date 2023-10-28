@@ -1,0 +1,41 @@
+name: 'Publish R7 Shop Images'
+
+on:
+  release:
+    types: published
+
+jobs:
+  publish:
+    name: 'Publish R7 Shop Images'
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 'Checkout repository'
+        uses: actions/checkout@v4
+      
+      - name: 'Set up JDK 8'
+        uses: actions/setup-java@v3
+        with:
+          java-version: '8'
+          distribution: 'temurin'
+          architecture: 'x64'
+      
+      - name: 'Build project with Maven'
+        run: |
+          mvn verify
+      
+      - name: 'Login ghcr.io'
+        run: |
+          docker login --username hardingadonis --password ${{ secrets.GHCR }} ghcr.io
+      
+      - name: 'Publish R7 Shop Database'
+        working-directory: ${{ github.workspace }}/database
+        run: |
+          docker build . --tag ghcr.io/hardingadonis/r7-shop-database:latest
+          docker push ghcr.io/hardingadonis/r7-shop-database:latest
+      
+      - name: 'Publish R7 Shop Server'
+        working-directory: ${{ github.workspace }}/server
+        run: |
+          docker build . --tag ghcr.io/hardingadonis/r7-shop-server:latest
+          docker push ghcr.io/hardingadonis/r7-shop-server:latest
