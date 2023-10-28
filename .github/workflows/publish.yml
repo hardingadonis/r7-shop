@@ -1,8 +1,9 @@
 name: 'Publish R7 Shop Images'
 
 on:
-  release:
-    types: released
+  push:
+    branches:
+      - main
 
 jobs:
   publish:
