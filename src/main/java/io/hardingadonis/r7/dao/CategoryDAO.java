@@ -29,11 +29,12 @@ public class CategoryDAO implements DAO<Category> {
                 int ID = rs.getInt("id");
                 String name = rs.getString("name");
                 String slug = rs.getString("slug");
+                int parentID = rs.getInt("parent_id");
                 LocalDateTime createAt = Converter.convert(rs.getTimestamp("create_at"));
                 LocalDateTime updateAt = Converter.convert(rs.getTimestamp("update_at"));
                 LocalDateTime deleteAt = Converter.convert(rs.getTimestamp("delete_at"));
 
-                list.add(new Category(ID, name, slug, createAt, updateAt, deleteAt));
+                list.add(new Category(ID, name, slug, parentID, createAt, updateAt, deleteAt));
             }
 
             JDBC.closeConnection(conn);
@@ -59,11 +60,12 @@ public class CategoryDAO implements DAO<Category> {
             if (rs.next()) {
                 String name = rs.getString("name");
                 String slug = rs.getString("slug");
+                int parentID = rs.getInt("parent_id");
                 LocalDateTime createAt = Converter.convert(rs.getTimestamp("create_at"));
                 LocalDateTime updateAt = Converter.convert(rs.getTimestamp("update_at"));
                 LocalDateTime deleteAt = Converter.convert(rs.getTimestamp("delete_at"));
 
-                category = new Category(ID, name, slug, createAt, updateAt, deleteAt);
+                category = new Category(ID, name, slug, parentID, createAt, updateAt, deleteAt);
             }
 
             JDBC.closeConnection(conn);
@@ -79,10 +81,11 @@ public class CategoryDAO implements DAO<Category> {
         try {
             Connection conn = JDBC.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("INSERT INTO category(name, slug, create_at) VALUES (?, ?, ?)");
+            PreparedStatement smt = conn.prepareStatement("INSERT INTO category(name, slug, parent_id, create_at) VALUES (?, ?, ?, ?)");
             smt.setString(1, obj.getName());
             smt.setString(2, obj.getSlug());
-            smt.setString(3, Converter.convert(obj.getCreateAt()));
+            smt.setInt(3, obj.getParentID());
+            smt.setString(4, Converter.convert(obj.getCreateAt()));
 
             smt.executeUpdate();
 
@@ -97,11 +100,12 @@ public class CategoryDAO implements DAO<Category> {
         try {
             Connection conn = JDBC.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("UPDATE category SET name = ?, slug = ?, update_at = ? WHERE id = ? AND delete_at IS NULL");
+            PreparedStatement smt = conn.prepareStatement("UPDATE category SET name = ?, slug = ?, parent_id = ?, update_at = ? WHERE id = ? AND delete_at IS NULL");
             smt.setString(1, obj.getName());
             smt.setString(2, obj.getSlug());
-            smt.setString(3, Converter.convert(LocalDateTime.now()));
-            smt.setInt(4, obj.getID());
+            smt.setInt(3, obj.getParentID());
+            smt.setString(4, Converter.convert(LocalDateTime.now()));
+            smt.setInt(5, obj.getID());
 
             smt.executeUpdate();
 
