@@ -12,7 +12,7 @@ public class DBContextMySQLImpl implements DBContext {
     private String password;
 
     public DBContextMySQLImpl() {
-        try (InputStream input = JDBC.class.getClassLoader().getResourceAsStream("config.mysql.properties")) {
+        try (InputStream input = DBContextMySQLImpl.class.getClassLoader().getResourceAsStream("config.mysql.properties")) {
             Properties prop = new Properties();
 
             if (input == null) {
