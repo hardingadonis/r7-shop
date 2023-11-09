@@ -9,6 +9,8 @@ public class Singleton {
     public static DBContext dbContext;
 
     public static AdminDAO adminDAO;
+    
+    public static CartDAO cartDAO;
 
     public static CategoryDAO categoryDAO;
 
@@ -20,6 +22,8 @@ public class Singleton {
         dbContext = new DBContextMySQLImpl();
 
         adminDAO = new AdminDAOMySQLImpl();
+        
+        cartDAO = new CartDAOMySQLImpl();
 
         categoryDAO = new CategoryDAOMySQLImpl();
 
