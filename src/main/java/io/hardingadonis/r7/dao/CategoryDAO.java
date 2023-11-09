@@ -11,9 +11,9 @@ public interface CategoryDAO {
 
     public Optional<Category> get(int ID);
 
-    public void insert(Admin obj);
+    public void insert(Category obj);
 
-    public void update(Admin obj);
+    public void update(Category obj);
 
     public void delete(int ID);
 

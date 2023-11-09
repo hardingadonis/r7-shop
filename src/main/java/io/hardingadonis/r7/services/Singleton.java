@@ -10,12 +10,16 @@ public class Singleton {
 
     public static AdminDAO adminDAO;
 
+    public static CategoryDAO categoryDAO;
+
     public static UserDAO userDAO;
 
     static {
         dbContext = new DBContextMySQLImpl();
 
         adminDAO = new AdminDAOMySQLImpl();
+
+        categoryDAO = new CategoryDAOMySQLImpl();
 
         userDAO = new UserDAOMySQLImpl();
     }
