@@ -10,7 +10,11 @@ public class Singleton {
 
     public static AdminDAO adminDAO;
 
+    public static CartDAO cartDAO;
+
     public static CategoryDAO categoryDAO;
+
+    public static OrderDataDAO orderDataDAO;
 
     public static ProductDAO productDAO;
 
@@ -21,7 +25,11 @@ public class Singleton {
 
         adminDAO = new AdminDAOMySQLImpl();
 
+        cartDAO = new CartDAOMySQLImpl();
+
         categoryDAO = new CategoryDAOMySQLImpl();
+
+        orderDataDAO = new OrderDataDAOMySQLImpl();
 
         productDAO = new ProductDAOMySQLImpl();
 
