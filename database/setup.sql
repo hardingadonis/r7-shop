@@ -15,6 +15,11 @@ CREATE TABLE `admin` (
   `delete_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+INSERT INTO `admin` (`id`, `username`, `hashed_password`, `role`, `create_at`, `update_at`, `delete_at`) VALUES
+(1, 'admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'super_admin', '2023-10-23 10:47:51', NULL, NULL),
+(2, 'adonis', '3fd725a89717d2175289be8011e2b983ab6428bc0064f788f1a9d6eb014c2253', 'admin', '2023-10-23 10:49:18', NULL, NULL),
+(3, 'sinoda', '1c55e32786f8fd46880d95c4491f3b0ddc265ca349bd2c5ceb4e57e24b3d887b', 'admin', '2023-10-24 10:50:13', NULL, NULL);
+
 CREATE TABLE `cart` (
   `user_id` int(11) NOT NULL COMMENT 'Liên kết với id bảng user',
   `product_id` int(11) NOT NULL COMMENT 'Liên kết với id bảng product',
