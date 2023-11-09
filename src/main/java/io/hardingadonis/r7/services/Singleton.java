@@ -6,13 +6,17 @@ import io.hardingadonis.r7.services.impl.mysql.*;
 
 public class Singleton {
 
-    public static DBContext context;
-    
+    public static DBContext dbContext;
+
     public static AdminDAO adminDAO;
 
+    public static UserDAO userDAO;
+
     static {
-        context = new DBContextMySQLImpl();
-        
+        dbContext = new DBContextMySQLImpl();
+
         adminDAO = new AdminDAOMySQLImpl();
+
+        userDAO = new UserDAOMySQLImpl();
     }
 }

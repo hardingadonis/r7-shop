@@ -15,7 +15,7 @@ public class AdminDAOMySQLImpl implements AdminDAO {
         List<Admin> list = new ArrayList<>();
         
         try {
-            Connection conn = Singleton.context.getConnection();
+            Connection conn = Singleton.dbContext.getConnection();
             
             PreparedStatement smt = conn.prepareStatement("SELECT * FROM admin WHERE delete_at IS NULL");
             
@@ -33,7 +33,7 @@ public class AdminDAOMySQLImpl implements AdminDAO {
                 list.add(new Admin(ID, username, hashedPassword, role, createAt, updateAt, deleteAt));
             }
             
-            Singleton.context.closeConnection(conn);
+            Singleton.dbContext.closeConnection(conn);
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -46,7 +46,7 @@ public class AdminDAOMySQLImpl implements AdminDAO {
         List<Admin> list = new ArrayList<>();
         
         try {
-            Connection conn = Singleton.context.getConnection();
+            Connection conn = Singleton.dbContext.getConnection();
             
             PreparedStatement smt = conn.prepareStatement("SELECT * FROM admin WHERE delete_at IS NULL AND role = ?");
             smt.setString(1, role.toString());
@@ -64,7 +64,7 @@ public class AdminDAOMySQLImpl implements AdminDAO {
                 list.add(new Admin(ID, username, hashedPassword, role, createAt, updateAt, deleteAt));
             }
             
-            Singleton.context.closeConnection(conn);
+            Singleton.dbContext.closeConnection(conn);
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -77,7 +77,7 @@ public class AdminDAOMySQLImpl implements AdminDAO {
         Admin admin = null;
         
         try {
-            Connection conn = Singleton.context.getConnection();
+            Connection conn = Singleton.dbContext.getConnection();
             
             PreparedStatement smt = conn.prepareStatement("SELECT * FROM admin WHERE id = ? AND delete_at IS NULL");
             smt.setInt(1, ID);
@@ -95,7 +95,7 @@ public class AdminDAOMySQLImpl implements AdminDAO {
                 admin = new Admin(ID, username, hashedPassword, role, createAt, updateAt, deleteAt);
             }
             
-            Singleton.context.closeConnection(conn);
+            Singleton.dbContext.closeConnection(conn);
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -108,7 +108,7 @@ public class AdminDAOMySQLImpl implements AdminDAO {
         Admin admin = null;
         
         try {
-            Connection conn = Singleton.context.getConnection();
+            Connection conn = Singleton.dbContext.getConnection();
             
             PreparedStatement smt = conn.prepareStatement("SELECT * FROM admin WHERE username = ? AND delete_at IS NULL");
             smt.setString(1, username);
@@ -126,7 +126,7 @@ public class AdminDAOMySQLImpl implements AdminDAO {
                 admin = new Admin(ID, username, hashedPassword, role, createAt, updateAt, deleteAt);
             }
             
-            Singleton.context.closeConnection(conn);
+            Singleton.dbContext.closeConnection(conn);
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -137,7 +137,7 @@ public class AdminDAOMySQLImpl implements AdminDAO {
     @Override
     public void insert(Admin obj) {
         try {
-            Connection conn = Singleton.context.getConnection();
+            Connection conn = Singleton.dbContext.getConnection();
             
             PreparedStatement smt = conn.prepareStatement("INSERT INTO admin(username, hashed_password, role, create_at) VALUES (?, ?, ?, ?)");
             smt.setString(1, obj.getUsername());
@@ -147,7 +147,7 @@ public class AdminDAOMySQLImpl implements AdminDAO {
             
             smt.executeUpdate();
             
-            Singleton.context.closeConnection(conn);
+            Singleton.dbContext.closeConnection(conn);
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -156,7 +156,7 @@ public class AdminDAOMySQLImpl implements AdminDAO {
     @Override
     public void update(Admin obj) {
         try {
-            Connection conn = Singleton.context.getConnection();
+            Connection conn = Singleton.dbContext.getConnection();
             
             PreparedStatement smt = conn.prepareStatement("UPDATE admin SET username = ?, hashed_password = ?, role = ?, update_at = ? WHERE id = ? AND delete_at IS NULL");
             smt.setString(1, obj.getUsername());
@@ -167,7 +167,7 @@ public class AdminDAOMySQLImpl implements AdminDAO {
             
             smt.executeUpdate();
             
-            Singleton.context.closeConnection(conn);
+            Singleton.dbContext.closeConnection(conn);
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -176,7 +176,7 @@ public class AdminDAOMySQLImpl implements AdminDAO {
     @Override
     public void delete(int ID) {
         try {
-            Connection conn = Singleton.context.getConnection();
+            Connection conn = Singleton.dbContext.getConnection();
             
             PreparedStatement smt = conn.prepareStatement("UPDATE admin SET delete_at = ? WHERE id = ? AND delete_at IS NULL");
             smt.setString(1, Converter.convert(LocalDateTime.now()));
@@ -184,7 +184,7 @@ public class AdminDAOMySQLImpl implements AdminDAO {
             
             smt.executeUpdate();
             
-            Singleton.context.closeConnection(conn);
+            Singleton.dbContext.closeConnection(conn);
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -195,7 +195,7 @@ public class AdminDAOMySQLImpl implements AdminDAO {
         int count = 0;
         
         try {
-            Connection conn = Singleton.context.getConnection();
+            Connection conn = Singleton.dbContext.getConnection();
             
             PreparedStatement smt = conn.prepareStatement("SELECT COUNT(*) FROM admin WHERE delete_at IS NULL");
             
@@ -205,7 +205,7 @@ public class AdminDAOMySQLImpl implements AdminDAO {
                 count = rs.getInt(1);
             }
             
-            Singleton.context.closeConnection(conn);
+            Singleton.dbContext.closeConnection(conn);
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -218,7 +218,7 @@ public class AdminDAOMySQLImpl implements AdminDAO {
         int count = 0;
         
         try {
-            Connection conn = Singleton.context.getConnection();
+            Connection conn = Singleton.dbContext.getConnection();
             
             PreparedStatement smt = conn.prepareStatement("SELECT COUNT(*) FROM admin WHERE delete_at IS NULL AND role = ?");
             smt.setString(1, role.toString());
@@ -229,7 +229,7 @@ public class AdminDAOMySQLImpl implements AdminDAO {
                 count = rs.getInt(1);
             }
             
-            Singleton.context.closeConnection(conn);
+            Singleton.dbContext.closeConnection(conn);
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
