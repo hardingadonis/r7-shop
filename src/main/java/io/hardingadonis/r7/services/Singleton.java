@@ -1,4 +1,4 @@
-package io.hardingadonis.r7.utils;
+package io.hardingadonis.r7.services;
 
 import io.hardingadonis.r7.services.*;
 import io.hardingadonis.r7.services.impl.mysql.*;
