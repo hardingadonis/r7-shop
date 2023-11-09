@@ -13,6 +13,8 @@ public class Singleton {
     public static CartDAO cartDAO;
 
     public static CategoryDAO categoryDAO;
+    
+    public static OrderDAO orderDAO;
 
     public static OrderDataDAO orderDataDAO;
 
@@ -28,6 +30,8 @@ public class Singleton {
         cartDAO = new CartDAOMySQLImpl();
 
         categoryDAO = new CategoryDAOMySQLImpl();
+        
+        orderDAO = new OrderDAOMySQLImpl();
 
         orderDataDAO = new OrderDataDAOMySQLImpl();
 
