@@ -16,3 +16,4 @@
 ## Licenses:
 - [R7 Shop](https://github.com/hardingadonis/r7-shop) is under the [Apache-2.0 license](https://github.com/hardingadonis/r7-shop/blob/main/LICENSE).
 - [location_data.json](https://raw.githubusercontent.com/hardingadonis/r7-shop/main/database/location_data.json) is collected by [DiaGioiHanhChinhVN](https://github.com/kenzouno1/DiaGioiHanhChinhVN).
+- [favicon](https://github.com/hardingadonis/r7-shop/blob/main/src/main/webapp/assets/imgs/favicon/favicon.png) is under the [flaticon](https://www.flaticon.com/free-icon/amd_5968990).
