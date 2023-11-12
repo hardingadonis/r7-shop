@@ -71,43 +71,6 @@
                     <outputDirectory>${project.basedir}/server/</outputDirectory>
                 </configuration>
             </plugin>
-            <!--            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.6.0</version>
-                <executions>
-                    <execution>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>copy</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${endorsed.dir}</outputDirectory>
-                            <silent>true</silent>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>javax</groupId>
-                                    <artifactId>javaee-endorsed-api</artifactId>
-                                    <version>7.0</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>com.mysql</groupId>
-                                    <artifactId>mysql-connector-j</artifactId>
-                                    <version>8.1.0</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>com.googlecode.json-simple</groupId>
-                                    <artifactId>json-simple</artifactId>
-                                    <version>1.1.1</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                            </artifactItems>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>-->
         </plugins>
     </build>
 
