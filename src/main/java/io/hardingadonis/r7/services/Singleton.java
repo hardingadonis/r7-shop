@@ -2,11 +2,14 @@ package io.hardingadonis.r7.services;
 
 import io.hardingadonis.r7.dao.*;
 import io.hardingadonis.r7.dao.impl.mysql.*;
+import io.hardingadonis.r7.services.impl.gmail.*;
 import io.hardingadonis.r7.services.impl.mysql.*;
 
 public class Singleton {
 
     public static DBContext dbContext;
+    
+    public static Email email;
 
     public static AdminDAO adminDAO;
 
@@ -24,6 +27,8 @@ public class Singleton {
 
     static {
         dbContext = new DBContextMySQLImpl();
+        
+        email = new EmailGmailImpl();
 
         adminDAO = new AdminDAOMySQLImpl();
 
