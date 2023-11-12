@@ -17,7 +17,7 @@ public class DefaultFilter implements Filter {
 
         String url = req.getServletPath();
 
-        if (url.equalsIgnoreCase("/") || url.contains(".jsp")) {
+        if (url.equals("/") || url.contains(".jsp")) {
             res.sendRedirect(req.getContextPath() + "/home");
         } else {
             chain.doFilter(request, response);
